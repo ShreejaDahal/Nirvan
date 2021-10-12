@@ -1,0 +1,213 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/pmdd.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/nav_style.css') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> </head>
+<style>
+.navbar {
+	height: 18%;
+}
+
+.dropdown .dropbtn {
+	background-color: black;
+}
+
+.success {
+	font-size: 25px;
+	color: green;
+	font-family: Verdana;
+}
+</style>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title of the page-->
+<title>PMDD Test</title>
+<header id="top_head" class="top_header" data-header-fix-moments="500" data-header-fix-effect="slide">
+	<!--
+      Navigation bar
+      ---------------
+      Contains Home, About, Resources, Find Support, and Contact US tab 
+      -->
+	    <div class="navigation_bar">
+      <div class="menu_options">
+        <a href="connect.html">Find Support</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="bio.html">About</a>
+        <a href="main_index.html">Home</a>
+      </div>
+      <div class="options">
+        <!--
+            Dropdown button
+            ---------------
+            Contains resources for mental health and lgbtqi+
+            -->
+        <button class="dropdown_button">
+          <i class="fa fa-align-justify"></i>
+        </button>
+        <div class="resources">
+          <a href="support.html">Mental Health Resources</a>
+          <a href="lgbtq_and_bully.html">LGBTQI+ Resources</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    </div>
+</header>
+
+<body>
+	<!--
+         Form
+         ----------
+         Contains questions in a table with radio buttons to choose from. Uses POST method to send info to
+         predict_pmdd
+         -->
+	<div class="container" id="blur">
+		<br>
+		<form action="{{url_for('predict_pmdd')}}" method="POST">
+			<table class="pmdd_table">
+				<tr>
+					<td> In the past 3 menstrual cycle, have you felt the following; </td>
+					<td> Select Yes or No </td>
+				</tr>
+				<tr>
+					<td> feelings of sadness or hopelessness </td>
+					<td>
+						<label for="ques1"></label>
+						<input type="radio" id="ques1" name="ques1" class="ques1" value="1" required>Yes</input>
+						<input type="radio" id="ques1" name="ques1" class="ques1" value="0" required> No </input>
+					</td>
+				</tr>
+				<tr>
+					<td> feelings of anxiety or tension </td>
+					<td>
+						<label for="ques2"></label>
+						<input type="radio" id="ques2" name="ques2" class="ques2" value="1" required>Yes</input>
+						<input type="radio" id="ques2" name="ques2" class="ques2" value="0" required>No</input>
+					</td>
+				</tr>
+				<tr>
+					<td> mood changes or increased sensitivity </td>
+					<td>
+						<label for="ques3"></label>
+						<input type="radio" id="ques3" name="ques3" class="ques3" value="1" required>Yes</input>
+						<input type="radio" id="ques3" name="ques3" class="ques3" value="0" required>No</input>
+				</tr>
+				<td> feelings of anger or irritability </td>
+				<td>
+					<label for="ques4"></label>
+					<input type="radio" id="ques4" name="ques4" class="ques4" value="1" required>Yes</input>
+					<input type="radio" id="ques4" name="ques4" class="ques4" value="0" required>No</input>
+					</tr>
+					<tr>
+						<td> apathy to routine activities, which may be associated with social withdrawal </td>
+						<td>
+							<label for="ques5"></label>
+							<input type="radio" id="ques5" name="ques5" class="ques5" value="1" required>Yes</input>
+							<input type="radio" id="ques5" name="ques5" class="ques5" value="0" required>No</input>
+					</tr>
+					<tr>
+						<td> difficulty concentrating </td>
+						<td>
+							<label for="ques6"></label>
+							<input type="radio" id="ques6" name="ques6" class="ques6" value="1" required>Yes</input>
+							<input type="radio" id="ques6" name="ques6" class="ques6" value="0" required>No</input>
+					</tr>
+					<tr>
+						<td> fatigue </td>
+						<td>
+							<label for="ques7"></label>
+							<input type="radio" id="ques7" name="ques7" class="ques7" value="1" required>Yes</input>
+							<input type="radio" id="ques7" name="ques7" class="ques7" value="0">No</input>
+					</tr>
+					<tr>
+						<td> changes in appetite </td>
+						<td>
+							<label for="ques8"></label>
+							<input type="radio" id="ques8" name="ques8" class="ques8" value="1" required>Yes</input>
+							<input type="radio" id="ques8" name="ques8" class="ques8" value="0" required>No</input>
+					</tr>
+					<tr>
+						<td> sleeping problems, whether excessive sleeping (hypersomnia) or insomnia </td>
+						<td>
+							<label for="ques9"></label>
+							<input type="radio" id="ques9" name="ques9" class="ques9" value="1" required>Yes</input>
+							<input type="radio" id="ques9" name="ques9" class="ques10" value="0" required>No</input>
+					</tr>
+					<tr>
+						<td> feeling overwhelmed or having a sense of a lack of contro </td>
+						<td>
+							<label for="ques10"></label>
+							<input type="radio" id="ques10" name="ques10" class="ques10" value="1" required>Yes</input>
+							<input type="radio" id="ques10" name="ques10" class="ques10" value="0" required>No</input>
+					</tr>
+					<tr>
+						<td> Are these symptoms present a week before the onset of menses </td>
+						<td>
+							<label for="ques11"></label>
+							<input type="radio" id="ques11" name="ques11" class="ques11" value="1" required>Yes</input>
+							<input type="radio" id="ques11" name="ques11" class="ques11" value="0" required>No</input>
+					</tr>
+					<tr>
+						<td> Do these symptoms resolve after the start and within the first few days of flow </td>
+						<td>
+							<label for="ques12"></label>
+							<input type="radio" id="ques12" name="ques12" class="ques12" value="1" required>Yes</input>
+							<input type="radio" id="ques12" name="ques12" class="ques12" value="0" required>No</input>
+					</tr>
+					<tr>
+						<td> Do these symptoms interfere with normal daily living </td>
+						<td>
+							<label for="ques13"></label>
+							<input type="radio" id="ques13" name="ques13" class="ques13" value="1" required>Yes</input>
+							<input type="radio" id="ques13" name="ques13" class="ques13" value="0" required>No</input>
+						</td>
+					</tr>
+					<tr>
+						<!--Submit button-->
+						<div id="myBtn">
+							<td> When you're ready hit Submit </td>
+							<td>
+								<input class="result_button" type="submit" value="Submit"> </td>
+						</div>
+					</tr>
+					<tr>
+						<!-- Displays the success message-->
+						<td class="success"> {{success}} </td>
+						<td>
+							<div id="myMain">
+								<input id="showPopupBtn" class="result_button" type="button" value="Result"> </div>
+						</td>
+					</tr>
+			</table>
+		</form>
+	</div>
+	<!--
+         Popup message
+         --------------
+         Contains the result of the test and provides resources
+         Stays hidden until the submit button is hit
+      -->
+	<div id="popup" class="pop-up" hidden="true"> {{result}}
+		<p>Premenstrual dysphoric disorder (PMDD) may affect women of childbearing age. It's a severe and chronic medical condition that needs attention and treatment. Find some excellent resources <a href="mental_health_resources.html"> here! </p></a>
+			<button id="closePopupBtn">CLOSE</button>
+	</div>
+	<!--
+       footer message
+       ----------------
+       Disclaimer: The contents on the website if for general awareness only 
+       Author contact information
+   -->
+	<footer id="footer"> <strong><p>If you are experiencing a life-threating emergency,<br>
+         please exit out of the website and call (100) to connect to the nearest Police Office.<br>
+        Nirvan does not endorse or recommend any health workers or agencies.<br>
+        The contents on this website are for educational purposes only and<br>
+        are not intended to be a substitute for a professional diagnosis or treatment.</p>
+        <p>Author: Shreeja Dahal<br></strong>
+		<p>Contact Info: <a href="mailto:sdahal2@ramapo.edu">Email</a> <a href="https://github.com/ShreejaDahal">Github</a> <a href="https://www.linkedin.com/in/shreeja-dahal/">LinkedIn</a></p>
+	</footer>
+	<script src="static/js/popups.js" type="text/javascript"></script>
+</body>
+
+</html>

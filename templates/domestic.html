@@ -1,0 +1,121 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/contacts_table.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/nav_style.css') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> </head>
+<style>
+.navbar {
+	height: 18%
+}
+
+.dropdown .dropbtn {
+	background-color: rgba(218, 78, 78, 0.041);
+}
+</style>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title of the page-->
+<title>Contact Details</title>
+<header id="top_head" class="top_header" data-header-fix-moments="500" data-header-fix-effect="slide">
+	<!--
+      Navigation bar
+      ---------------
+      Contains Home, About, Resources, Find Support, and Contact US tab 
+      -->
+	    <div class="navigation_bar">
+      <div class="menu_options">
+        <a href="connect.html">Find Support</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="bio.html">About</a>
+        <a href="main_index.html">Home</a>
+      </div>
+      <div class="options">
+        <!--
+            Dropdown button
+            ---------------
+            Contains resources for mental health and lgbtqi+
+            -->
+        <button class="dropdown_button">
+          <i class="fa fa-align-justify"></i>
+        </button>
+        <div class="resources">
+          <a href="support.html">Mental Health Resources</a>
+          <a href="lgbtq_and_bully.html">LGBTQI+ Resources</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    </div>
+
+<body>
+	<!--
+         Table
+         ----------
+         Contains Subject and Data from user input
+         -->
+	<table class="contact_table">
+		<tr> {% for subject in Subjects %}
+			<th>{{ subject }}</th> {% endfor %} </tr> {% for row in Data %}
+		<tr> {% for cell in row %}
+			<td>{{ cell }}</td> {% endfor %} </tr> {% endfor %} </table>
+	<!--
+         Form
+         ----------
+         Collects health care provider's information from users. Uses POST method to send info to
+         connect
+         -->
+	<form action="{{url_for('domestic')}}" method="POST">
+		<table class="table_form">
+			<tr>
+				<td> Enter a health care provider or concerned authority's info </td>
+				<td> Below </td>
+			</tr>
+			<tr>
+				<td> Name </td>
+				<td>
+					<input type="textarea" placeholder="Name" id="Name" name="Name" required>
+					<br> </td>
+			</tr>
+			<tr>
+				<td> District </td>
+				<td>
+					<input type="textarea" placeholder="Districts" id="Districts" name="Districts" required>
+					<br> </td>
+			</tr>
+			<tr>
+				<td> Contact Name </td>
+				<td>
+					<input type="textarea" placeholder="Contact Name" id="Contact Name" name="Contact Name" required>
+					<br> </td>
+			</tr>
+			<tr>
+				<td> Position </td>
+				<td>
+					<input type="textarea" placeholder="Position" id="Position" name="Position" required>
+					<br> </td>
+			</tr>
+			<tr>
+				<td> Contact Number </td>
+				<td>
+					<input type="textarea" placeholder="Contact Number" id="Contact Number" name="Contact Number" required>
+					<br> </td>
+			</tr>
+			<tr>
+				<td> Email </td>
+				<td>
+					<input type="textarea" placeholder="Email" id="Email" name="Email" required>
+					<br> </td>
+			</tr>
+			<tr>
+				<td> When you're ready, hit the Result button on the right </td>
+				<td>
+					<input class="result_button" type="submit" value="Submit"> </div>
+			</tr>
+			<tr>
+		</table>
+	</form>
+</body>
+
+</html>

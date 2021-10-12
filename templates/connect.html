@@ -1,0 +1,115 @@
+<!DOCTYPE html5>
+<html lang="en">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/connect.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/nav_style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Title of the page-->
+  <title>Discussion Forum</title>
+  <!--
+      Navigation bar
+      ---------------
+      Contains Home, About, Resources, Find Support, and Contact US tab 
+      -->
+    <div class="navigation_bar">
+      <div class="menu_options">
+        <a href="connect.html">Find Support</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="bio.html">About</a>
+        <a href="main_index.html">Home</a>
+      </div>
+      <div class="options">
+        <!--
+            Dropdown button
+            ---------------
+            Contains resources for mental health and lgbtqi+
+            -->
+        <button class="dropdown_button">
+          <i class="fa fa-align-justify"></i>
+        </button>
+        <div class="resources">
+          <a href="support.html">Mental Health Resources</a>
+          <a href="lgbtq_and_bully.html">LGBTQI+ Resources</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    </div>
+  </header>
+  <body>
+    </div>
+    <hr class="dashed" style="width:50% dashed;text-align:left;margin-left:0; border-top: 1px dotted; color:lavenderblush">
+    </form>
+    <div class="posts">
+      <h1>Anonymous Posts</h1>
+    </div>
+    <hr class="dashed" style="width:50% dashed;text-align:left;margin-left:0; border-top: 1px dotted; color:lavenderblush">
+    <!--
+         Table
+         ----------
+         Contains Subject and Data from user input
+         -->
+    <table>
+      <tr> {% for subject in Subjects %} 
+         <th>{{ subject }}
+
+        </th>
+         {% endfor %} 
+        </tr> 
+        {% for row in Data %} 
+        <tr> 
+          {% for cell in row %} 
+          <td>
+            {{ cell }}
+
+          </td>
+           {% endfor %}
+           </tr> 
+           {% endfor %}
+    </table>
+  </body>
+  <br>
+  <br>
+  <br>
+  <br>
+  <section>
+    <!--
+         Form
+         ----------
+         Collects Subject, Category, Date, and Description from users. Uses POST method to send info to
+         connect
+         -->
+    <form action="{{url_for('connect')}}" method="POST">
+      <fieldset class="card">
+        <div class="comment">
+          <input type="textarea" placeholder="Subject" id="Subject" name="Subject" required>
+          <br>
+          <input type="textarea" placeholder="Category" id="Category" name="Category" required>
+          <br>
+          <input type="date" placeholder="Date" id="Date" name="Date" required>
+          <br>
+          <input type="textarea" placeholder="Description" id="Description" name="Descibe it here!" required>
+          <br>
+          <input class="result_button" type="submit" value="Submit">
+        </div>
+    </form>
+    <br>
+    <br>
+    <!--
+       footer message
+       ----------------
+       Disclaimer: The contents on the website if for general awareness only 
+       Author contact information
+   -->
+    <footer>
+      <strong>
+        <p>Nirvan does not endorse or recommend any health workers or agencies. The contents on this website are anonymous posts made by the user of the website and are not intended to be a substitute for a professional diagnosis or treatment. <br> Author: Shreeja Dahal <br> Contact Info: <a href="mailto:sdahal2@ramapo.edu">Email</a>
+          <a href="https://github.com/ShreejaDahal">Github</a>
+          <a href="https://www.linkedin.com/in/shreeja-dahal/">LinkedIn</a>
+        </p>
+    </footer>
+    </fieldset>
+  </section>
+</html>

@@ -1,0 +1,260 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/bipolar_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/nav_style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <style>
+    .navbar {
+      height: 18%
+    }
+
+    .dropdown .dropbtn {
+      background-color: rgba(218, 78, 78, 0.041);
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Title of the page-->
+  <title>Bipolar Test</title>
+  <header>
+    <!--
+      Navigation bar
+      ---------------
+      Contains Home, About, Resources, Find Support, and Contact US tab 
+      -->
+    <div class="navigation_bar">
+      <div class="menu_options">
+        <a href="connect.html">Find Support</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="bio.html">About</a>
+        <a href="main_index.html">Home</a>
+      </div>
+      <div class="options">
+        <!--
+            Dropdown button
+            ---------------
+            Contains resources for mental health and lgbtqi+
+            -->
+        <button class="dropdown_button">
+          <i class="fa fa-align-justify"></i>
+        </button>
+        <div class="resources">
+          <a href="support.html">Mental Health Resources</a>
+          <a href="lgbtq_and_bully.html">LGBTQI+ Resources</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    </div>
+    <body>
+      <div class="container" id="blur">
+        <br>
+        <!--
+         Form
+         ----------
+         Contains questions in a table with radio buttons to choose from. Uses POST method to send info to
+         predict_bipolar
+         -->
+        <form action="{{url_for('predict_bipolar')}}" method="POST">
+          <table class="table_form">
+            <tr>
+              <td> In the past 2 week, have you felt the following; </td>
+              <td> Select Yes or No </td>
+            </tr>
+            <tr>
+              <td> Feel very up, high, elated, or irritable or touchy </td>
+              <td>
+                <label for="ques1"></label>
+                <input type="radio" id="ques1" name="ques1" class="ques1" value="1" required>Yes</input>
+                <input type="radio" id="ques1" name="ques1" class="ques1" value="0" required> No </input>
+              </td>
+            </tr>
+            <tr>
+              <td> Feel very sad, down, empty, worried, or hopeless </td>
+              <td>
+                <label for="ques2"></label>
+                <input type="radio" id="ques2" name="ques2" class="ques2" value="1" required>Yes</input>
+                <input type="radio" id="ques2" name="ques2" class="ques2" value="0" required>No</input>
+              </td>
+            </tr>
+            <tr>
+              <td> Feel jumpy or wired </td>
+              <td>
+                <label for="ques3"></label>
+                <input type="radio" id="ques3" name="ques3" class="ques3" value="1" required>Yes</input>
+                <input type="radio" id="ques3" name="ques3" class="ques3" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Feel slowed down or restless </td>
+              <td>
+                <label for="ques4"></label>
+                <input type="radio" id="ques4" name="ques4" class="ques4" value="1" required>Yes</input>
+                <input type="radio" id="ques4" name="ques4" class="ques4" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Have a decreased need for sleep </td>
+              <td>
+                <label for="ques5"></label>
+                <input type="radio" id="ques5" name="ques5" class="ques5" value="1" required>Yes</input>
+                <input type="radio" id="ques5" name="ques5" class="ques5" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Have trouble falling asleep, wake up too early, or sleep too much </td>
+              <td>
+                <label for="ques6"></label>
+                <input type="radio" id="ques6" name="ques6" class="ques6" value="1" required>Yes</input>
+                <input type="radio" id="ques6" name="ques6" class="ques6" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Have a loss of appetite </td>
+              <td>
+                <label for="ques7"></label>
+                <input type="radio" id="ques7" name="ques7" class="ques7" value="1" required>Yes</input>
+                <input type="radio" id="ques7" name="ques7" class="ques7" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Experience increased appetite and weight gain </td>
+              <td>
+                <label for="ques8"></label>
+                <input type="radio" id="ques8" name="ques8" class="ques8" value="1" required>Yes</input>
+                <input type="radio" id="ques8" name="ques8" class="ques8" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Talk very fast about a lot of different things </td>
+              <td>
+                <label for="ques9"></label>
+                <input type="radio" id="ques9" name="ques9" class="ques9" value="1" required>Yes</input>
+                <input type="radio" id="ques9" name="ques9" class="ques9" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Talk very slowly, feel like they have nothing to say, forget a lot </td>
+              <td>
+                <label for="ques10"></label>
+                <input type="radio" id="ques10" name="ques10" class="ques10" value="1" required>Yes</input>
+                <input type="radio" id="ques10" name="ques10" class="ques10" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Feel like their thoughts are racing </td>
+              <td>
+                <label for="ques11"></label>
+                <input type="radio" id="ques11" name="ques11" class="ques11" value="1" required>Yes</input>
+                <input type="radio" id="ques11" name="ques11" class="ques11" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Have trouble concentrating or making decisions </td>
+              <td>
+                <label for="ques12"></label>
+                <input type="radio" id="ques12" name="ques12" class="ques12" value="1" required>Yes</input>
+                <input type="radio" id="ques12" name="ques12" class="ques12" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Think they can do a lot of things at once </td>
+              <td>
+                <label for="ques13"></label>
+                <input type="radio" id="ques13" name="ques13" class="ques13" value="1" required>Yes</input>
+                <input type="radio" id="ques13" name="ques13" class="ques13" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Feel unable to do even simple things </td>
+              <td>
+                <label for="ques14"></label>
+                <input type="radio" id="ques14" name="ques14" class="ques14" value="1" required>Yes</input>
+                <input type="radio" id="ques14" name="ques14" class="ques14" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Do risky things that show poor judgment, such as eat and drink excessively, spend or give away a lot of money, or have reckless sex </td>
+              <td>
+                <label for="ques15"></label>
+                <input type="radio" id="ques15" name="ques15" class="ques15" value="1" required>Yes</input>
+                <input type="radio" id="ques15" name="ques15" class="ques15" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Have little interest in almost all activities, a decreased or absent sex drive, or an inability to experience pleasure </td>
+              <td>
+                <label for="ques16"></label>
+                <input type="radio" id="ques16" name="ques16" class="ques16" value="1" required>Yes</input>
+                <input type="radio" id="ques16" name="ques16" class="ques16" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Feel like they are unusually important, talented, or powerful </td>
+              <td>
+                <label for="ques17"></label>
+                <input type="radio" id="ques17" name="ques17" class="ques17" value="1" required>Yes</input>
+                <input type="radio" id="ques17" name="ques17" class="ques17" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> Feel hopeless or worthless, think about death or suicide </td>
+              <td>
+                <label for="ques18"></label>
+                <input type="radio" id="ques18" name="ques18" class="ques18" value="1" required>Yes</input>
+                <input type="radio" id="ques18" name="ques18" class="ques18" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> If you checked 1 to more than one of the above, have several of these ever happened during the same period of time? </td>
+              <td>
+                <label for="ques19"></label>
+                <input type="radio" id="ques19" name="ques19" class="ques19" value="1" required>Yes</input>
+                <input type="radio" id="ques19" name="ques19" class="ques19" value="0" required>No</input>
+            </tr>
+            <tr>
+              <td> How much of a problem did any of these cause you? For eg: having family, money or legal troubles; getting into arguments or fights? </td>
+              <td>
+                <label for="ques20"></label>
+                <input type="radio" id="ques20" name="ques20" class="ques20" value="1" required>Yes</input>
+                <input type="radio" id="ques20" name="ques20" class="ques20" value="0" required>No</input>
+            </tr>
+            <tr>
+              <!--Submit button-->
+              <div id="myBtn">
+                <td> When you're ready hit Submit </td>
+                <td>
+                  <input class="result_button" type="submit" value="Submit">
+                </td>
+              </div>
+            </tr>
+            <tr>
+              <!-- Displays the success message-->
+              <td class="success">
+                {{success}}
+              </td>
+              <td>
+                <div id="myMain">
+                  <input id="showPopupBtn" class="result_button" type="button" value="Result">
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <!--
+         Popup message
+         --------------
+         Contains the result of the test and provides resources
+         Stays hidden until the submit button is hit
+      -->
+      <div id="popup" class="pop-up" hidden="true">
+        {{result}}
+        <p>Bipolar disorder, also known as manic depression, is a mental illness that brings severe high and low moods and changes in sleep, energy, thinking, and behavior. Fret not, there's excellent resources <a href="mental_health_resources.html"> here! </p>
+        </a>
+        <button id="closePopupBtn">CLOSE</button>
+      </div>
+      <!--
+       footer message
+       ----------------
+       Disclaimer: The contents on the website if for general awareness only 
+       Author contact information
+   -->
+      <footer id="footer">
+        <strong>
+          <p>If you are experiencing a life-threating emergency, please exit out of the website and call (100) to connect to the nearest Police Office. <br> Nirvan does not endorse or recommend any health workers or agencies. <br> The contents on this website are for educational purposes only and are not intended to be a substitute for a professional diagnosis or treatment. </p>
+          <p>Author: Shreeja Dahal <br>
+        </strong>
+        <p>Contact Info: <a href="mailto:sdahal2@ramapo.edu">Email</a>
+          <a href="https://github.com/ShreejaDahal">Github</a>
+          <a href="https://www.linkedin.com/in/shreeja-dahal/">LinkedIn</a>
+        </p>
+      </footer>
+      <script src="static/js/popups.js" type="text/javascript"></script>
+    </body>
+</html>

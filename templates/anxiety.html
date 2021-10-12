@@ -1,0 +1,206 @@
+<!doctype html>
+<head>
+  <link rel="stylesheet" type="text/css" href="static/styles/anxiety_stylepage.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/nav_style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title of the page-->
+<title>Anxiety Test</title>
+<header id="top_head" class="top_header" data-header-fix-moments="500" data-header-fix-effect="slide">
+  <!--
+      Navigation bar
+      ---------------
+      Contains Home, About, Resources, Find Support, and Contact US tab 
+      -->
+  <div class="navigation_bar">
+	<div class = "menu_options">
+	<a href="connect.html">Find Support</a>
+ 	<a href="contact.html">Contact Us</a>
+ 	<a href="bio.html">About</a>
+ 	<a href="main_index.html">Home</a>
+ 	</div>
+		<div class="options">
+			<!--
+            Dropdown button
+            ---------------
+            Contains resources for mental health and lgbtqi+
+            -->
+			<button class="dropdown_button">
+            <i class="fa fa-align-justify"></i>
+            </button>
+			<div class="resources"> <a href="support.html">Mental Health Resources</a> <a href="lgbtq_and_bully.html">LGBTQI+ Resources</a> </div>
+		</div>
+  </div>
+	<br>
+  </div>
+</header>
+<body>
+  <div class="container" id="blur">
+    <br>
+    <!--
+         Form
+         ----------
+         Contains 7 questions in a table with select options to choose from. Uses POST method to send info to
+         predict_anxiety
+         -->
+    <form action="{{url_for('predict_anxiety')}}" method="POST">
+      <table class="anxiety_table">
+        <tr>
+          <td> In the past 2 week, have you felt the following; </td>
+          <td> Select an option </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="Fn">Feeling nervous, anxious or on edge</label>
+          </td>
+          <td>
+            <select class="form-control" id="Fn" name="Fn" required>
+              <option disabled selected value> Select an Option -- </option>
+              <option value="0">Not at all</option>
+              <option value="1">Several days</option>
+              <option value="2">More than half the days</option>
+              <option value="3">Nearly everyday</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="Wo">Not being able to stop or control worrying</label>
+          </td>
+          <td>
+            <select class="form-control" id="Wo" name="Wo" required>
+              <option disabled selected value> Select an Option -- </option>
+              <option value="0">Not at all</option>
+              <option value="1">Several days</option>
+              <option value="2">More than half the days</option>
+              <option value="3">Nearly everyday</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="Wt">Worrying too much about different things</label>
+          </td>
+          <td>
+            <select class="form-control" id="Wt" name="Wt" required>
+              <option disabled selected value> Select an Option -- </option>
+              <option value="0">Not at all</option>
+              <option value="1">Several days</option>
+              <option value="2">More than half the days</option>
+              <option value="3">Nearly everyday</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="Tr">Trouble relaxing</label>
+          </td>
+          <td>
+            <select class="form-control" id="Tr" name="Tr" required>
+              <option disabled selected value> Select an Option -- </option>
+              <option value="0">Not at all</option>
+              <option value="1">Several days</option>
+              <option value="2">More than half the days</option>
+              <option value="3">Nearly everyday</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="Re">Being so restless that it is hard to sit stil</label>
+          </td>
+          <td>
+            <select class="form-control" id="Re" name="Re" required>
+              <option disabled selected value> Select an Option -- </option>
+              <option value="0">Not at all</option>
+              <option value="1">Several days</option>
+              <option value="2">More than half the days</option>
+              <option value="3">Nearly everyday</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="Ai">Becoming easily annoyed or irritable</label>
+          </td>
+          <td>
+            <select class="form-control" id="Ai" name="Ai" required>
+              <option disabled selected value> Select an Option -- </option>
+              <option value="0">Not at all</option>
+              <option value="1">Several days</option>
+              <option value="2">More than half the days</option>
+              <option value="3">Nearly everyday</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="Aa">Feeling afraid as if something awful might happen</label>
+          </td>
+          <td>
+            <select class="form-control" id="Aa" name="Aa" required>
+              <option disabled selected value> Select an Option -- </option>
+              <option value="0">Not at all</option>
+              <option value="1">Several days</option>
+              <option value="2">More than half the days</option>
+              <option value="3">Nearly everyday</option>
+            </select>
+            <br>
+          </td>
+        </tr>
+        <tr>
+          <!--Submit button-->
+          <div id="myBtn">
+            <td> When you're ready hit Submit </td>
+            <td>
+              <input class="result_button" type="submit" value="Submit">
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <!-- Displays the success message-->
+          <td class="success">
+            {{success}}
+          </td>
+          <td>
+            <div id="myMain">
+              <input id="showPopupBtn" class="result_button" type="button" value="Result">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <!--
+         Popup message
+         --------------
+         Contains the result of the test and provides resources
+         Stays hidden until the submit button is hit
+      -->
+  <div id="popup" class="pop-up" hidden="true">
+    {{result}}
+    <p>For immediate relief from anxiety, stand up, pull your shoulders back, <br> and take a long breath. Focus on your vision and feel the things around you. <br> Then find some excellent resources near <a href="mental_health_resources.html"> here! </p>
+    </a>
+    <button id="closePopupBtn">CLOSE</button>
+  </div>
+  <!--
+       footer message
+       ----------------
+       Disclaimer: The contents on the website if for general awareness only 
+       Author contact information
+   -->
+  <footer id="footer">
+    <strong>
+      <p>If you are experiencing a life-threating emergency, <br> please exit out of the website and call (100) to connect to the nearest Police Office. <br> Nirvan does not endorse or recommend any health workers or agencies. <br> The contents on this website are for educational purposes only and <br> are not intended to be a substitute for a professional diagnosis or treatment. </p>
+      <p>Author: Shreeja Dahal <br>
+    </strong>
+    <p>Contact Info: <a href="mailto:sdahal2@ramapo.edu">Email</a>
+      <a href="https://github.com/ShreejaDahal">Github</a>
+      <a href="https://www.linkedin.com/in/shreeja-dahal/">LinkedIn</a>
+    </p>
+  </footer>
+  <script src="static/js/popups.js" type="text/javascript"></script>
+</body>
+</html>

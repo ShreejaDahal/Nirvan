@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/nav_style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/styles/contact_us.css">
+  </head>
+  <!--Title of the page-->
+  <title>Contact Us</title>
+  <!--
+      Navigation bar
+      ---------------
+      Contains Home, About, Resources, Find Support, and Contact US tab 
+      -->
+      <div class="navigation_bar">
+      <div class="menu_options">
+        <a href="connect.html">Find Support</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="bio.html">About</a>
+        <a href="main_index.html">Home</a>
+      </div>
+      <div class="options">
+        <!--
+            Dropdown button
+            ---------------
+            Contains resources for mental health and lgbtqi+
+            -->
+        <button class="dropdown_button">
+          <i class="fa fa-align-justify"></i>
+        </button>
+        <div class="resources">
+          <a href="support.html">Mental Health Resources</a>
+          <a href="lgbtq_and_bully.html">LGBTQI+ Resources</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    </div>
+  <body>
+    <div class="Contact_us">
+      <h1>CONTACT US</h1>
+    </div>
+    <!--
+         Form
+         ----------
+         Contains 4 input textarea for users to enter their name, message, and email. Uses POST method to send info to
+         form
+         -->
+    <form class="contact_form" action="{{url_for('form')}}" method="POST">
+      <p>First Name</p>
+      <input type="text" name="first_name">
+      <p>Last Name</p>
+      <input type="text" name="last_name">
+      <p>Email Address</p>
+      <input type="text" name="email">
+      <p>Message</p>
+      <textarea name="message"></textarea>
+      <br>
+      <br>
+      <input type="submit" name="submit" value="Submit">
+      <br>
+      <!-- Displays the success message-->
+      <div class="success">
+        {{result}}
+      </div>
+    </form>
+    <div class="photos">
+      <img src="static/images/subs_contact.png" class="subs_photo">
+      <img src="static/images/shreeja_contact.png" class="shreeja_photo">
+    </div>
+    </form>
+  </body>
+</html>
