@@ -5,7 +5,7 @@ The website is deployed in a cloud application platform called Heroku and can be
 # INSTALLATION 
 To run the application on your local machine, follow the steps below:
 1. Git cloning: On your terminal type
-	```git clone https://github.com/ShreejaDahal/Nirvaan.git```
+	```git clone https://github.com/ShreejaDahal/Nirvan.git```
 2. Install dependencies: 
 ```pip3 install -r requirements.txt ```
 Note: This is based on the fact that the program was built using Python3
